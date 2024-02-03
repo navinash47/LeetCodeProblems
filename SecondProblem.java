@@ -48,7 +48,7 @@ class Solution {
                 }
             }
         }
-        else res= false;
+        else if(x<0) res= false;
         return res;
     }
 }
