@@ -9,13 +9,17 @@ bool palindrome(int i, string &s)
 
 	return palindrome(i + 1, s);
 }
-
+bool is_palindrome_stl(const string& str) {
+    return equal(str.begin(), str.begin() + str.size() / 2, str.rbegin());
+}
 int main()
 {
 
 	// Example string.
 	string s = "malayalam";
 	cout << palindrome(0, s);
+	cout << endl;
+	cout << is_palindrome_stl(s);
 	cout << endl;
 	return 0;
 }
