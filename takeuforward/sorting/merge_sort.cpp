@@ -38,6 +38,19 @@ void merge_sort_recursive(int arr[], int low, int high)
     merge(arr, low, mid, high);
 }
 
+void merge_sort_iterative(int arr[], int n)
+{
+    for (int curr_size = 1; curr_size <= n - 1; curr_size *= 2)
+    {
+        for (int low = 0; low < n - 1; low += 2 * curr_size)
+        {
+            int mid = min(low + curr_size - 1, n - 1);
+            int high = min(low + 2 * curr_size - 1, n - 1);
+            merge(arr, low, mid, high);
+        }
+    }
+}
+
 int main()
 {
     int arr[] = {13, 46, 24, 52, 20, 9};
@@ -53,6 +66,16 @@ int main()
     for (int i = 0; i < n; i++)
     {
         cout << arr[i] << " ";
+    }
+    cout << "\n";
+
+    int arr2[] = {13, 46, 24, 52, 20, 9};
+    n = sizeof(arr2) / sizeof(arr2[0]);
+    merge_sort_iterative(arr2, n);
+    cout << "After merge sort iterative: " << "\n";
+    for (int i = 0; i < n; i++)
+    {
+        cout << arr2[i] << " ";
     }
     cout << "\n";
     return 0;
